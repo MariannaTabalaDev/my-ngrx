@@ -5,8 +5,8 @@ import {
     createSelector,
     MetaReducer
 } from '@ngrx/store';
-import { environment } from '../../environments/environment';
-import { COUNTER_KEY, CounterState, counterReducer } from './counter';
+import { environment } from '../../../environments/environment';
+import { COUNTER_KEY, CounterState, counterReducer } from './counter.reducers';
 
 export interface State {
     [COUNTER_KEY]: CounterState;

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { increase, decrease, clear, countSelector, updatedAtSelector } from './reducers/counter';
+import { increase, decrease, clear, doubling, } from './store/actions/counter.actions';
+import { countSelector, updatedAtSelector } from './store/selectors/counter.selectors'
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -12,8 +13,12 @@ export class AppComponent {
 
 
     count$ = this.store.select(countSelector);
+
+    updatedAt$ = this.store.select(updatedAtSelector);
+
     cannotDecrease$ = this.count$.pipe(map(count => count <= 0));
-    updatedAt$ = this.store.select(updatedAtSelector)
+
+
     constructor(private store: Store) {
     }
     increase(): void {
@@ -26,5 +31,8 @@ export class AppComponent {
     clear(): void {
         this.store.dispatch(clear())
     }
-
+    doubling(): void {
+        this.store.dispatch(doubling())
+    }
+  
 }

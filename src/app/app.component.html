@@ -1,6 +1,19 @@
-<button class="fz-30 m-20 p-30" (click)="increase()">+1</button>
-<button class="fz-30 m-20 p-30" (click)="decrease()" [disabled]="cannotDecrease$ | async">-1</button>
-<button class="fz-30 m-20 p-30" (click)="clear()" [disabled]="cannotDecrease$ | async">=0</button>
+<p class="fz-30">Drop a value of zero
+    <button class="fz-30 m-20 p-20" (click)="clear()" [disabled]="cannotDecrease$ | async">=0
+    </button>
+</p>
+<button class="fz-30 m-20 p-20" (click)="increase()">+1</button>
+<button class="fz-30 m-20 p-20" (click)="decrease()" [disabled]="cannotDecrease$ | async">-1</button>
+<button class="fz-30 m-20 p-20" (click)="doubling()" [disabled]="cannotDecrease$ | async">*2</button>
 
-<p class="fz-30">Counter = {{count$ | async}}</p>
-<p *ngIf="updatedAt$ | async" class="fz-30">Updated {{updatedAt$ | async | date: "HH:mm:ss dd/MM/yyyy"}}</p>
+
+
+<p class="fz-30">Counter = <button class="fz-30 m-20 p-20">{{ count$ | async }}</button></p>
+
+
+
+<p *ngIf="updatedAt$ | async" class="fz-30">
+
+    Updated {{updatedAt$ | async | date: "HH:mm:ss dd/MM/yyyy"}}
+
+</p>
